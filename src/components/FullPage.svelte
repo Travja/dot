@@ -43,7 +43,7 @@
         right: 0;
         bottom: 0;
         background: var(--background);
-        background-position: center;
+        background-position: top;
         background-attachment: fixed;
         background-size: contain;
         background-repeat: no-repeat;
