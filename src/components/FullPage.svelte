@@ -1,9 +1,14 @@
 <!--suppress CssUnresolvedCustomProperty -->
 <script lang="ts">
+    import {onMount} from "svelte";
+
     export let withTriangle = false;
     export let background = 'white';
     export let color = 'black';
     export let landscape;
+
+    let isSafari = false;
+    onMount(() => setTimeout(() => isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || /CriOS/i.test(navigator.userAgent)))
 </script>
 
 {#if withTriangle}
@@ -16,7 +21,8 @@
         </div>
     </div>
 {/if}
-<div class="full-page wrapper sticky" style="--background: {background}; --color: {color}">
+<div class="full-page wrapper sticky" style="--background: {background}; --color: {color}"
+     class:safari={isSafari}>
     {#if !landscape}
         <div class="backdrop"/>
     {/if}
@@ -43,11 +49,15 @@
         right: 0;
         bottom: 0;
         background: var(--background);
-        background-position: top;
+        background-position: center;
         background-attachment: fixed;
         background-size: contain;
         background-repeat: no-repeat;
         backdrop-filter: blur(15px);
+    }
+
+    .full-page.safari, .safari .backdrop {
+        background-attachment: unset;
     }
 
     .content {
