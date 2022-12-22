@@ -28,7 +28,12 @@
 </div>
 
 <style>
-    .full-page {
+    .full-page, .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: var(--background);
         background-position: center;
         background-attachment: fixed;
@@ -37,16 +42,7 @@
     }
 
     .backdrop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--background);
-        background-position: center;
-        background-attachment: fixed;
         background-size: contain;
-        background-repeat: no-repeat;
         backdrop-filter: blur(15px);
     }
 
