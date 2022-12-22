@@ -21,7 +21,9 @@
         <div class="backdrop"/>
     {/if}
     <div class="content center" class:image={background.startsWith("url")} class:tri={withTriangle}>
-        <slot/>
+        <div class="contentWrapper">
+            <slot/>
+        </div>
     </div>
 </div>
 
@@ -54,6 +56,18 @@
         width: 100%;
         min-height: 100%;
         color: var(--color);
+    }
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        padding: 2rem;
+    }
+
+    .contentWrapper::-webkit-scrollbar {
+        display: none;
     }
 
     .content.image {
