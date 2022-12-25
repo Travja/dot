@@ -2,6 +2,9 @@
     import FullPage from "../components/FullPage.svelte";
 </script>
 
+<svelte:head>
+    <title>Thank you!</title>
+</svelte:head>
 <FullPage background="darkslategray" color="white">
     <h1>I just want to say <strong>Thank You!</strong></h1>
     <p>For all that you do&mdash;and all that you are!</p>
