@@ -7,7 +7,7 @@
     import {quadInOut} from "svelte/easing";
     import {fly} from "svelte/transition";
 
-    export let woolColor = "white";
+    export let woolColor = "#dfdfdf";
 
     const clamp = (num, min, max) => Math.max(Math.min(num, Math.max(min, max)), Math.min(min, max));
     let xPos: Tweened<number> = tweened(0, {

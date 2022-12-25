@@ -5,7 +5,8 @@
     export let withTriangle = false;
     export let background = 'white';
     export let color = 'black';
-    export let landscape;
+    export let landscape = false;
+    export let shadowed = false;
 
     let isSafari = false;
     onMount(() => setTimeout(() => isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || /CriOS/i.test(navigator.userAgent)))
@@ -26,7 +27,10 @@
     {#if !landscape}
         <div class="backdrop"/>
     {/if}
-    <div class="content center" class:image={background.startsWith("url")} class:tri={withTriangle}>
+    <div class="content center"
+         class:image={background.startsWith("url")}
+         class:tri={withTriangle}
+         class:shadowed={shadowed}>
         <div class="contentWrapper">
             <slot/>
         </div>
@@ -147,5 +151,9 @@
 
     .triangle-right .filler {
         float: right;
+    }
+
+    .shadowed {
+        box-shadow: inset 0 0 100px 75px #111, 0 0 10px 0 rgba(0, 0, 0, 0.7) !important;
     }
 </style>

@@ -224,7 +224,7 @@
     }
 
     .body {
-        background: white;
+        background: #dfdfdf;
         width: 70%;
         height: 40%;
         top: 45%;
@@ -236,7 +236,7 @@
         width: 22px;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: white;
+        background: #dfdfdf;
         right: 70%;
     }
 
