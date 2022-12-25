@@ -30,7 +30,7 @@
     }
 
     onMount(() => {
-        if (woolColor == "white") {
+        if (woolColor == "#dfdfdf") {
             let colorRandom = Math.random();
             if (colorRandom < 0.05) {
                 rainbowTask = setInterval(() => {
