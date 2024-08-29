@@ -8,23 +8,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Indie+Flower&family=Shadows+Into+Light&display=swap"
           rel="stylesheet">
-    <meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="/_app/immutable/start-bba52bfe.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index-1f255c1c.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons-a7e90b42.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index-740e1a8a.js">
+    
+		<link rel="modulepreload" href="/_app/immutable/entry/start.BuZsV_yK.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/entry.DgvsRae4.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/scheduler.Bh9-FMem.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.DlwMy2vk.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.DhGB90eC.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.nA8eXS-I.js">
 </head>
 <body data-sveltekit-preload-data="hover">
 <div>
-		<script type="module" data-sveltekit-hydrate="45h">
-			import { start } from "/_app/immutable/start-bba52bfe.js";
+			<script>
+				{
+					__sveltekit_2cnljw = {
+						base: ""
+					};
 
-			start({
-				env: {},
-				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
-				version: "1671998325555"
-			});
-		</script></div>
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/_app/immutable/entry/start.BuZsV_yK.js"),
+						import("/_app/immutable/entry/app.DhGB90eC.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
 </body>
 </html>
