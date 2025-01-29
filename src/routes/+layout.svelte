@@ -1,15 +1,20 @@
-<script>
+<script lang="ts">
     import '../app.css';
     import Sheep from "../components/Sheep.svelte";
     import TireSwing from "../components/TireSwing.svelte";
     import FullPage from "../components/FullPage.svelte";
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
 
-    let clicked = false;
+    let { children }: Props = $props();
+
+    let clicked = $state(false);
 </script>
 
 {#if clicked}
-    <slot/>
-    <div class="grass"/>
+    {@render children?.()}
+    <div class="grass"></div>
     {#each {length: 3} as _, i}
         <Sheep/>
     {/each}
@@ -21,7 +26,7 @@
             <br/>
             They are meant to cross our path for a reason.
         </h1>
-        <div class="button" on:click={() => clicked = true}>Our Story</div>
+        <div class="button" onclick={() => clicked = true}>Our Story</div>
     </FullPage>
 {/if}
 

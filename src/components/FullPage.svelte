@@ -2,37 +2,49 @@
 <script lang="ts">
     import {onMount} from "svelte";
 
-    export let withTriangle = false;
-    export let background = 'white';
-    export let color = 'black';
-    export let landscape = false;
-    export let shadowed = false;
+    interface Props {
+        withTriangle?: boolean;
+        background?: string;
+        color?: string;
+        landscape?: boolean;
+        shadowed?: boolean;
+        children?: import('svelte').Snippet;
+    }
 
-    let isSafari = false;
+    let {
+        withTriangle = false,
+        background = 'white',
+        color = 'black',
+        landscape = false,
+        shadowed = false,
+        children
+    }: Props = $props();
+
+    let isSafari = $state(false);
     onMount(() => setTimeout(() => isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || /CriOS/i.test(navigator.userAgent)))
 </script>
 
 {#if withTriangle}
     <div class="transition" style="--background: {background}; --color: {color}">
         <div class="triangle triangle-left">
-            <div class="filler"/>
+            <div class="filler"></div>
         </div>
         <div class="triangle triangle-right">
-            <div class="filler"/>
+            <div class="filler"></div>
         </div>
     </div>
 {/if}
 <div class="full-page wrapper sticky" style="--background: {background}; --color: {color}"
      class:safari={isSafari}>
     {#if !landscape}
-        <div class="backdrop"/>
+        <div class="backdrop"></div>
     {/if}
     <div class="content center"
          class:image={background.startsWith("url")}
          class:tri={withTriangle}
          class:shadowed={shadowed}>
         <div class="contentWrapper">
-            <slot/>
+            {@render children?.()}
         </div>
     </div>
 </div>

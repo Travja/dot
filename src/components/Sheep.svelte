@@ -7,18 +7,22 @@
     import {quadInOut} from "svelte/easing";
     import {fly} from "svelte/transition";
 
-    export let woolColor = "#dfdfdf";
+    interface Props {
+        woolColor?: string;
+    }
+
+    let { woolColor = $bindable("#dfdfdf") }: Props = $props();
 
     const clamp = (num, min, max) => Math.max(Math.min(num, Math.max(min, max)), Math.min(min, max));
-    let xPos: Tweened<number> = tweened(0, {
+    let xPos: Tweened<number> = $state(tweened(0, {
         easing: quadInOut,
         duration: 2000
-    });
+    }));
 
-    let right = Math.random() > 0.5;
-    let running = false;
-    let walking = false;
-    let eating = false;
+    let right = $state(Math.random() > 0.5);
+    let running = $state(false);
+    let walking = $state(false);
+    let eating = $state(false);
     let task = -1;
     let rainbowTask = -1;
     let startDelay = Math.random() * 2000 - 1000;
@@ -96,31 +100,31 @@
      class:eating={eating}
      style="left: {$xPos}px; transform: scaleX({right ? 1 : -1}); --startDelay: {startDelay}ms; --woolColor: {woolColor};">
     <div class="front-feet feet">
-        <div class="foot foot1"/>
-        <div class="foot foot2"/>
+        <div class="foot foot1"></div>
+        <div class="foot foot2"></div>
     </div>
     <div class="hind-feet feet">
-        <div class="foot foot1"/>
-        <div class="foot foot2"/>
+        <div class="foot foot1"></div>
+        <div class="foot foot2"></div>
     </div>
-    <div class="tail"/>
+    <div class="tail"></div>
     <div class="body">
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
-        <div class="fluff"/>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
+        <div class="fluff"></div>
     </div>
     <div class="head-wrapper">
-        <div class="ear2"/>
-        <div class="ear1"/>
-        <div class="head"/>
+        <div class="ear2"></div>
+        <div class="ear1"></div>
+        <div class="head"></div>
         <div class="eye">
-            <div class="eye-ball"/>
+            <div class="eye-ball"></div>
         </div>
     </div>
 </div>

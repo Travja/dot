@@ -11,7 +11,7 @@
     let task = -1;
     let audio: HTMLAudioElement;
     let swinging = false;
-    let tireSwing: HTMLElement;
+    let tireSwing: HTMLElement = $state();
 
     onMount(() => {
         audio = new Audio("/wee-trim.mp3");
@@ -45,39 +45,39 @@
 </script>
 
 <div class="tire-swing" style="--rotation: {$rotate}deg" bind:this={tireSwing}>
-    <div class="rope"/>
-    <div class="back-tire"/>
+    <div class="rope"></div>
+    <div class="back-tire"></div>
     <div class="sheep">
         <div class="front-feet feet">
-            <div class="foot foot1"/>
-            <div class="foot foot2"/>
+            <div class="foot foot1"></div>
+            <div class="foot foot2"></div>
         </div>
         <div class="hind-feet feet">
-            <div class="foot foot1"/>
-            <div class="foot foot2"/>
+            <div class="foot foot1"></div>
+            <div class="foot foot2"></div>
         </div>
-        <div class="tail"/>
+        <div class="tail"></div>
         <div class="body">
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
-            <div class="fluff"/>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
+            <div class="fluff"></div>
         </div>
         <div class="head-wrapper">
-            <div class="ear2"/>
-            <div class="ear1"/>
-            <div class="head"/>
+            <div class="ear2"></div>
+            <div class="ear1"></div>
+            <div class="head"></div>
             <div class="eye">
-                <div class="eye-ball"/>
+                <div class="eye-ball"></div>
             </div>
         </div>
     </div>
-    <div class="front-tire"/>
+    <div class="front-tire"></div>
 </div>
 
 <style>
